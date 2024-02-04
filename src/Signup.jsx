@@ -7,7 +7,7 @@ import "./App.css";
 export default function Singup() {
   const [name, setName] = useState()
   const [pass, setPass] = useState()
-  const {signup, isAuth} = useAuth()
+  const {signup, isCreated} = useAuth()
 
 const handleSubmit = async (e) =>{
     e.preventDefault()
@@ -16,7 +16,7 @@ const handleSubmit = async (e) =>{
 
   return (
     <div>
-      {isAuth && <Navigate to="/login"></Navigate>}
+      {isCreated && <Navigate to="/login"></Navigate>}
       <form className="form" onSubmit={handleSubmit}>
         <div className="title">
           Welcome,
