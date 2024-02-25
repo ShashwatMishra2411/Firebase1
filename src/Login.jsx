@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Navigate } from "react-router";
+import { Navigate, Link } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import "./App.css";
 
 export default function Singup() {
   const [name, setName] = useState()
   const [pass, setPass] = useState()
-  const {login, isAuth} = useAuth();
+  const {login, isAuth, isCreated} = useAuth();
   const handleSubmit = (e) => {
     e.preventDefault()
     login(name, pass)
@@ -16,6 +16,7 @@ export default function Singup() {
   return (
     <div>
         {isAuth && <Navigate to="/"/>}
+
       <form className="form" onSubmit={handleSubmit}>
         <div className="title">
           Welcome,
@@ -74,6 +75,8 @@ export default function Singup() {
           </div>
         </div>
         <button type="submit" className="button-confirm">Let`s go →</button>
+        <Link to="/signup">Signup</Link>
+        <Link to="/forgot-password">Forgot Password</Link>
       </form>
     </div>
   );

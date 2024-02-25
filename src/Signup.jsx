@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router";
+import { Navigate, Link } from "react-router-dom";
 import axios from "axios";
 import {useAuth} from './contexts/AuthContext'
 import "./App.css";
@@ -75,6 +75,8 @@ const handleSubmit = async (e) =>{
           </div>
         </div>
         <button type="submit" className="button-confirm">Let`s go →</button>
+        <Link to="/login">Login Page</Link>
+        <Link to="/forgot-password">Forgot Password</Link>
       </form>
     </div>
   );
